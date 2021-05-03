@@ -1,3 +1,8 @@
+output "enable_mcs_command" {
+  value       = "gcloud alpha container hub multi-cluster-services enable --project=${var.project_id} && gcloud projects add-iam-policy-binding ${var.project_id} --member \"serviceAccount:${var.project_id}.svc.id.goog[gke-mcs/gke-mcs-importer]\" --role \"roles/compute.networkViewer\""
+  description = "Enable Multi-cluster Services in project"
+}
+
 output "enable_mci_command" {
   value       = "gcloud alpha container hub ingress enable --config-membership=projects/${var.project_id}/locations/global/memberships/${var.config_cluster_membership_name} --project=${var.project_id}"
   description = "Enable Multi-cluster Ingress and set cluster1 as config cluster"
