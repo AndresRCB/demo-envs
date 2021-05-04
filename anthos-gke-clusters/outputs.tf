@@ -1,6 +1,11 @@
 output "enable_mcs_command" {
-  value       = "gcloud alpha container hub multi-cluster-services enable --project=${var.project_id} && gcloud projects add-iam-policy-binding ${var.project_id} --member \"serviceAccount:${var.project_id}.svc.id.goog[gke-mcs/gke-mcs-importer]\" --role \"roles/compute.networkViewer\""
+  value       = "gcloud alpha container hub multi-cluster-services enable --project=${var.project_id}"
   description = "Enable Multi-cluster Services in project"
+}
+
+output "allow_mcs_command" {
+  value       = "gcloud projects add-iam-policy-binding ${var.project_id} --member \"serviceAccount:${var.project_id}.svc.id.goog[gke-mcs/gke-mcs-importer]\" --role \"roles/compute.networkViewer\""
+  description = "Allow Multi-cluster Services in project"
 }
 
 output "enable_mci_command" {

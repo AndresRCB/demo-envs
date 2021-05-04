@@ -86,7 +86,6 @@ module "gke1" {
     source                  = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
     project_id              = module.project.project_id
     name                    = "${var.cluster_name_prefix}-cluster1"
-    release_channel         = "RAPID"
     regional                = false
     region                  = var.first_region
     zones                   = [var.first_zone]
@@ -108,7 +107,6 @@ module "gke2" {
     source                  = "terraform-google-modules/kubernetes-engine/google//modules/private-cluster"
     project_id              = module.project.project_id
     name                    = "${var.cluster_name_prefix}-cluster2"
-    release_channel         = "RAPID"
     regional                = false
     region                  = var.second_region
     zones                   = [var.second_zone]
